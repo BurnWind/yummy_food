@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商家管理后台</title>
+	<link rel="stylesheet" type="text/css" href="static/css/l&r.css">
+</head>
+<body>
+	<form action="/" method="post">
+		<h1>好好吃零食商家管理</h1>
+		<h3>
+			<a href="#">登录</a>
+			<a href="/register">注册</a>
+		</h3>
+		<p class="p1">
+			<span>用户名：</span>
+		</p>
+		<p class="p2">
+			<input type="text" name="sphone" required="required">
+		</p>
+		{% if error1%}
+			<p>{{error1}}</p>
+		{% endif %}
+		<p class="p1">
+			<span>密码：</span>
+		</p>
+		<p class="p2">
+			<input type="password" name="spwd" required="required">
+		</p>
+		{% if error %}
+			<p>{{error}}</p>
+		{% endif %}
+		<p class="p3">
+			<input type="checkbox" name="rem" value="">
+			<span>记住密码</span>	
+		</p>
+		<p class="end">
+			<input class="submit" type="submit" value="登录">
+			<input class="submit" type="reset" value="重置">
+		</p>
+	</form>
+</body>
+</html>

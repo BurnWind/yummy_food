@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>好好吃零食-商家管理</title>
+	<link rel="stylesheet" href="static/css/reset.css">
+	<link rel="stylesheet" href="static/css/common.css">
+	<link rel="stylesheet" href="static/css/index.css">
+	<link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="static/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="static/css/jquery.dataTables.min.css">
+	<script src="static/js/jquery-1.11.3.js"></script>
+	<script src="static/js/jquery.dataTables.min.js"></script>
+	<script src="static/js/dataTables.bootstrap.min.js"></script>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1>好好吃零食</h1>
+			<h2>您好，{{seller.seller_name}}</h2>
+		</div>
+	</header>
+	<section>
+		<div class="container">
+			<aside class="aside">
+				<ul>
+					<li class="aside-item" id="add_product">添加商品</li>
+					<li class="aside-item" id="product_msg">商品信息</li>
+				</ul>
+			</aside>
+			<article class="main">
+				<div class="add_product">
+					<form action="/add_product" method="post" enctype="multipart/form-data" id="aform">
+						<p class="arow">
+							<label for="">商品描述</label>
+							<input type="text" name="product_name">
+						</p>
+						<p class="arow">
+							<label for="">商品类别</label>
+							<select name="product_kind" id="">
+								{% for i in product_kind %}
+									<option value="{{ i.id }}">{{ i.type_name }}</option>
+								{% endfor %}
+							</select>
+						</p>
+						<p class="arow">
+							<label for="">商品库存</label>
+							<input type="number" name="product_total" min=1>
+						</p>
+						<p class="arow">
+							<label for="">商品价格</label>
+							<input type="number" name="product_price" min=0>
+						</p>
+						<p class="arow">
+							<label for="">商品头图（banner图）</label>
+							<input type="file" name="banner" multiple="multiple" accept="image/png, image/jpeg, image/jpg">
+						</p>
+						<p class="arow">
+							<label for="">商品详情图</label>
+							<input type="file" name="detail" multiple="multiple" accept="image/png, image/jpeg, image/jpg">
+						</p>
+						<p class="arow">
+							<input type="submit" value="提交" id="add_sbum">
+						</p>
+					</form>
+				</div>
+				<div class="products_msg">
+					<table id="products" width="1000px">
+						<thead>
+							<tr>
+								<th>商品描述</th>
+								<th>商品类别id</th>
+								<th>商品类别</th>
+								<th>商品价格</th>
+								<th>商品库存</th>
+								<th>商品销量</th>
+							</tr>
+						</thead>
+
+					</table>
+				</div>
+			</article>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			power by xxx
+		</div>
+	</footer>
+	<div class="dialog">
+		<form action="/modify_product" method="post" enctype="multiple/form-data">
+			<p class="arow">
+				<label for="">商品描述</label>
+				<input id="pname" type="text" name="product_name">
+			</p >
+			<p class="arow">
+				<label for="">商品类别</label>
+				<select id="pid" name="product_kind">
+					{% for i in product_kind %}
+						<option value="{{ i.id }}">{{ i.type_name }}</option>
+					{% endfor %}
+				</select>
+			</p >
+			<p class="arow">
+				<label for="">商品库存</label>
+				<input id="ptotal" type="number" name="product_total">
+			</p >
+			<p class="arow">
+				<label for="">商品价格</label>
+				<input id="pprice" type="number" name="product_price">
+			</p >
+<!-- 			<p class="arow">
+				<label for="">商品头图（banner图）</label>
+				<input type="file" name="banner" multiple="multiple" accept="image/png, image/jpeg, image/jpg">
+			</p >
+			<p class="arow">
+				<label for="">商品详情图</label>
+				<input type="file" name="detail" multiple="multiple" accept="image/png, image/jpeg, image/jpg">
+			</p > -->
+			<p class="arow">
+				<input type="submit" value="提交" id="modify_sbum">
+				<button id="delete">删除商品</button>
+			</p >
+		</form>
+	</div>
+	<script src="static/js/index.js"></script>
+</body>
+</html>

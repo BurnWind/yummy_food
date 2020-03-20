@@ -1,0 +1,16 @@
+section .container{
+	display:flex;
+	margin-bottom: 50px;
+}
+.add_product{
+	display: none;
+}
+.products_msg{
+	display:none;
+}
+.arow{
+	width:100%;
+	box-sizing: border-box;
+	padding:20px;
+	padding-left: 50px;
+}

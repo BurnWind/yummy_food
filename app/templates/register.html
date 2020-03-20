@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商家管理后台</title>
+	<link rel="stylesheet" type="text/css" href="static/css/l&r.css">
+	<script src="static/js/jquery-1.11.3.js"></script>
+	<script src="static/js/register.js"></script>
+	<style type="text/css">
+		form{
+			height: 540px;
+			margin-top: -270px;
+		}
+		.p3{
+			margin: 20px auto;
+		}
+		.p3 input{
+			width: 200px;
+			height: 30px;
+		}
+		.p3 button{
+			width: 100px;
+			height: 30px;
+			background-color: white;
+			border: 1px solid #ccc;
+			outline-color: white; 
+		}
+	</style>
+</head>
+<body>
+	<form action="/register" method="post" id="form">
+		<h1>好好吃零食商家管理</h1>
+		<h3>
+			<a href="/login">登录</a>
+			<a href="#">注册</a>
+		</h3>
+		<p class="p1">
+			<span>手机号：</span>
+		</p>
+		<p class="p2">
+			<input type="number" name="sphone" required="required" id="phone">
+		</p>
+		{% if error %}
+			<p>{{error}}</p>
+		{% endif %}
+		<p class="p1">
+			<span>用户名：</span>
+		</p>
+		<p class="p2">
+			<input type="text" name="sname" required="required">
+		</p>
+		{% if error1 %}
+			<p>{{error1}}</p>
+		{% endif %}
+		<p class="p1">
+			<span>密码：</span>
+		</p>
+		<p class="p2">
+			<input type="password" name="spwd" required="required">
+		</p>
+		<p class="p1">
+			<span>确认密码：</span>
+		</p>
+		<p class="p2">
+			<input type="password" name="cpwd" required="required">
+		</p>
+		<p class="p3">
+			<input type="text" name="icode" required="required" id="icode">
+			<button id="send_icode">发送验证码</button>	
+		</p>
+		{% if error2 %}
+			<p>{{error2}}</p>
+		{% endif %}
+		<p class="end">
+			<input class="submit" type="submit" value="注册" id="subm">
+			<input class="submit" type="reset" value="重置">
+		</p>
+	</form>
+</body>
+</html>
