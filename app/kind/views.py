@@ -8,7 +8,7 @@ from .. import db
 from ..models import *
 import json
 
-url = 'http://176.122.11.133:5000/static/image/'
+url = 'http://127.0.0.1:5000/static/image/'
 
 @kind.route('/classification')
 def get_kind():

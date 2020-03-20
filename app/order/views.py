@@ -15,7 +15,7 @@ import random
 
 # 订单生成获取商品数据
 
-url = 'http://176.122.11.133:5000/static/image/'
+url = 'http://127.0.0.1:5000/static/image/'
 @order.route('/order/get_products', methods=['POST'])
 def order_get_products():
     token = request.form.get('token')

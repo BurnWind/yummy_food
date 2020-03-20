@@ -10,7 +10,7 @@ from ..seller.redis_store import r
 import json
 # 返回购物车数据
 
-path = "http://176.122.11.85:5000/static/image/"
+path = "http://127.0.0.1:5000/static/image/"
 @cart.route('/get_cart')
 def get_cart():
     token = request.args.get("token")
